@@ -1,7 +1,18 @@
 <h1><%= @cocktail.name %></h1>
-<% @doses.each do |dose| %>
-  <p>
-    <%= dose.description %> of <%= dose.ingredient.name %> 
-  </p>
-<% end %>
-  
+<h5>Doses</h5>
+<ul>
+  <% @doses.each do |dose| %>
+    <li>
+      <%= dose.description %> of <%= dose.ingredient.name %> 
+    </li>
+  <% end %>
+</ul>
+<br>
+<div class="d-flex">
+  <%= link_to new_cocktail_dose_path(@cocktail) do %>
+    <button type="button" class="btn btn-primary btn-sm mr-3 rounded">Add a new dose</button>
+  <% end %>
+  <%= link_to cocktails_path do %>
+    <button type="button" class="btn btn-primary btn-sm rounded">Back to cocktails list</button>
+  <% end %>
+  </div>

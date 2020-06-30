@@ -3,6 +3,7 @@ class DosesController < ApplicationController
 
   def new
     @cocktail = Cocktail.find(params[:cocktail_id])
+    @doses = Dose.where(cocktail: @cocktail)
     @dose = Dose.new
   end
   
